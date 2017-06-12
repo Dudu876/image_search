@@ -1,0 +1,39 @@
+body {
+    /*padding: 50px;*/
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    padding: 15px;
+    display: -webkit-inline-box;
+    display: -moz-inline-box;
+}
+
+a {
+    color: #00B7FF;
+}
+
+.photos {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.photoContainer {
+    margin: 5px
+}
+
+.photoContainer img {
+    max-width: 300px;
+    max-height: 300px;
+}
+
+.search {
+    width: 65vw;
+}
+
+.history {
+    width: 30vw;
+    padding-left: 30px;
+}

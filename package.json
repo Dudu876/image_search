@@ -1,0 +1,16 @@
+{
+    "name": "riskified",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+        "start": ".\\node_modules\\.bin\\static -p 5000 -c 0",
+        "test": "node app.js"
+    },
+    "keywords": [],
+    "author": "Dudu Lemberberg",
+    "license": "ISC",
+    "dependencies": {
+        "node-static": "^0.7.9"
+    }
+}

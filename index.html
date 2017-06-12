@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <base href="/">
+
+    <title>myApp</title>
+
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="public/stylesheets/style.css">
+
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/bower_components/angular/angular.min.js"></script>
+
+    <script src="angular.js"></script>
+    <script src="/controllers/mainCtrl.js"></script>
+
+    <script src="/services/flickrService.js"></script>
+    <script src="/services/pixabayService.js"></script>
+
+</head>
+
+<body ng-controller="mainCtrl">
+
+    <div class="search">
+        <h1>Photo Search</h1>
+        <div class="input-group">
+            <input ng-keypress="$event.which === 13 ? search.go(search.query) : void(0)" ng-model="search.query" type="text" class="form-control" placeholder="Search for...">
+            <span class="input-group-btn">
+                <button ng-click="search.go(search.query)" class="btn btn-default" type="button">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            </button>
+            </span>
+        </div>
+        <div class='photos'>
+            <div class="photoContainer" ng-repeat="photo in photos">
+                <a ng-href='{{photo.imageLink}}' target="_blank">
+                    <img ng-src="{{photo.imageUrl}}" alt="" />
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class='history'>
+        <h1>History <button ng-click="history.clear()" class='btn btn-default'>Clear</button></h1>
+
+        <table ng-show="history.items.length" class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Query</th>
+                    <th>Service</th>
+                    <th>Time</th>
+                    <th>Count</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in history.items">
+                    <td><a href="" ng-click='search.go(item.query)'>{{item.query}}</a></td>
+                    <td>{{item.service}}</td>
+                    <td>{{item.time | date:'dd/MM/yyyy hh:mm'}}</td>
+                    <td>{{item.count}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
