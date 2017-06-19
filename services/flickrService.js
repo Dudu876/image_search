@@ -1,13 +1,11 @@
 myApp.service('flickrService', ['$http', '$sce', '$q', function($http, $sce, $q) {
     const baseURL = 'https://api.flickr.com/services/rest/?method=flickr.photos.search';
     const api_key = '76a7839d52fa06c5b123036f871ecbd1';
-    const extras = ['url_q'];
     const per_page = 30;
 
     const createURL = (query) => {
         let url = baseURL + '&text=' + query +
             '&api_key=' + api_key +
-            '&extras=' + extras.join `,` +
             '&per_page=' + per_page +
             '&format=json' + '&nojsoncallback=1';
         return $sce.trustAsResourceUrl(url);

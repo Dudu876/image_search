@@ -14,7 +14,6 @@ myApp.service('pixabayService', ['$http', '$sce', '$q', function($http, $sce, $q
         // create and return a promise that will be resolved with the relevant data from the api
         let deferred = $q.defer();
         $http.get(createURL(query)).then((data) => {
-            console.log(data);
             deferred.resolve({
                 photos: data.data.hits.map((photo) => {
                     return {
